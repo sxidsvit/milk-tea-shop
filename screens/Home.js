@@ -3,25 +3,27 @@ import {
     View,
     Text,
     TouchableOpacity,
-    StyleSheet
-} from 'react-native';
+    StyleSheet,
+    ScrollView
+} from 'react-native'
+import { connect } from 'react-redux'
 
-const Home = ({ navigation }) => {
+import { HeaderBar } from '../components/index'
+import { constants, icons, COLORS, FONTS, images, SIZES, dummyData } from '../constants'
+
+const Home = ({ navigation, appTheme, error }) => {
     return (
         <View style={styles.container}>
-            <Text>Home</Text>
-
-            <TouchableOpacity
-                onPress={() => navigation.navigate("Rewards")}
-            >
-                <Text>Navigate to Rewards</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-                onPress={() => navigation.navigate("Location")}
-            >
-                <Text>Navigate to Locations</Text>
-            </TouchableOpacity>
+            <HeaderBar />
+            <ScrollView
+                style={{
+                    flex: 1,
+                    marginTop: -25,
+                    borderTopLeftRadius: SIZES.radius * 2,
+                    borderTopRightRadius: SIZES.radius * 2,
+                    backgroundColor: appTheme.backgroundColor
+                }}>
+            </ScrollView>
         </View>
     )
 }
@@ -29,9 +31,18 @@ const Home = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
     }
 })
 
-export default Home;
+function mapStateToProps(state) {
+    return {
+        appTheme: state.appTheme,
+        error: state.error
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
