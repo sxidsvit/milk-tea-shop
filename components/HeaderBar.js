@@ -26,8 +26,9 @@ const HeaderBar = ({ appTheme, error, toggleTheme }) => {
   return (
     <SafeAreaView
       style={{
-        height: 150,
+        height: 100,
         width: '100%',
+        paddingTop: 10,
         backgroundColor: COLORS.purple,
         flexDirection: 'row'
       }}>
