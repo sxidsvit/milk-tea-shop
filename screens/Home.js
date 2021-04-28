@@ -55,8 +55,9 @@ const TabIndicator = ({ measureLayout, scrollX }) => {
 const Tabs = ({ appTheme, scrollX, onPromoTabPress }) => {
 
     const [measureLayout, setMeasureLayout] = React.useState([])
-
     const containerRef = React.useRef()
+
+    const tabPosition = Animated.divide(scrollX, SIZES.width)
 
     React.useEffect(() => {
         let ml = []
@@ -94,6 +95,13 @@ const Tabs = ({ appTheme, scrollX, onPromoTabPress }) => {
 
             {/* Tabs  */}
             {promoTabs.map((item, index) => {
+
+                const textColor = tabPosition.interpolate({
+                    inputRange: [index - 1, index, index + 1],
+                    outputRange: [COLORS.lightGray2, COLORS.white, COLORS.lightGray2],
+                    extrapolate: 'clamp'
+                })
+
                 return (
                     <TouchableOpacity
                         key={`PromoTab -${index}`}
@@ -108,9 +116,9 @@ const Tabs = ({ appTheme, scrollX, onPromoTabPress }) => {
                                 height: 40
                             }}
                         >
-                            <Text style={{ color: COLORS.white, ...FONTS.h3 }}>
+                            <Animated.Text style={{ color: textColor, ...FONTS.h3 }}>
                                 {item.title}
-                            </Text>
+                            </Animated.Text>
                         </View>
                     </TouchableOpacity>
                 )
@@ -121,7 +129,7 @@ const Tabs = ({ appTheme, scrollX, onPromoTabPress }) => {
 
 
 
-const Home = ({ navigation, appTheme, error }) => {
+const Home = ({ navigation, appTheme }) => {
 
     const scrollX = React.useRef(new Animated.Value(0)).current
 
@@ -336,12 +344,13 @@ const styles = StyleSheet.create({
 function mapStateToProps(state) {
     return {
         appTheme: state.appTheme,
-        error: state.error
+        // error: state.error
     }
 }
 
-function mapDispatchToProps(dispatch) {
-    return {}
-}
+// function mapDispatchToProps(dispatch) {
+//     return {}
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+// export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(mapStateToProps)(Home)
