@@ -104,12 +104,12 @@ const Tabs = () => {
                     height: (Platform.OS == 'android') ? 60 : 80
                 }
             }}
-            tabBar={(props) =>
-                <CustomTabBar
-                    props={props}
-                />
-
-            }
+        //  TODO : Must only be used for iOS
+        //     tabBar={(props) =>
+        //         <CustomTabBar
+        //             props={props}
+        //         />
+        //     }
         >
             <Tab.Screen
                 name="Home"
@@ -237,7 +237,7 @@ const Tabs = () => {
                     )
                 }}
             />
-        </Tab.Navigator>
+        </Tab.Navigator >
     )
 }
 
