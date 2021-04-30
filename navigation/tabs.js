@@ -105,11 +105,10 @@ const Tabs = () => {
                 }
             }}
         //  TODO : Must only be used for iOS
-        //     tabBar={(props) =>
-        //         <CustomTabBar
-        //             props={props}
-        //         />
-        //     }
+        // tabBar={Platform.OS === 'ios'
+        //     ? (props) => <CustomTabBar props={props} />
+        //     : (props) => { }
+        // }
         >
             <Tab.Screen
                 name="Home"

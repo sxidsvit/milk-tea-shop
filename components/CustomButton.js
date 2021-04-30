@@ -6,7 +6,7 @@ import {
 
 import { COLORS } from '../constants'
 
-const CustomButton = ({ containerStyle, labelStyle, label, onPress, isPrimaryButton, isSecondaryButton }) => {
+const CustomButton = ({ isPrimaryButton, isSecondaryButton, label, containerStyle, labelStyle, onPress }) => {
 
   return (
     <TouchableOpacity
