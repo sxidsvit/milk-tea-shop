@@ -170,11 +170,76 @@ const Location = ({ navigation, appTheme }) => {
                             />
                         </View>
                         {/* Addres  */}
-
+                        <View
+                            style={{
+                                marginTop: SIZES.base,
+                                width: '80%'
+                            }}
+                        >
+                            <Text
+                                style={{
+                                    color: appTheme.textColor,
+                                    ...FONTS.body3,
+                                    lineHeight: 21
+                                }}
+                            >
+                                {item.address}</Text>
+                        </View>
                         {/* Operation Hours  */}
-
-                        {/* Buttons  */}
-
+                        <View
+                            style={{
+                                marginTop: SIZES.base,
+                                marginBottom: SIZES.base,
+                            }}
+                        >
+                            <Text
+                                style={{
+                                    color: appTheme.textColor,
+                                    ...FONTS.body5,
+                                    lineHeight: 16
+                                }}
+                            >
+                                {item.operation_hours}</Text>
+                        </View>
+                        {/* Services */}
+                        <View
+                            style={{
+                                flexDirection: 'row',
+                                marginTop: SIZES.base,
+                            }}
+                        >
+                            {/* Pick up  */}
+                            <View
+                                style={{
+                                    borderColor: appTheme.textColor,
+                                    borderWidth: 1,
+                                    borderRadius: 20,
+                                    paddingHorizontal: SIZES.radius,
+                                    paddingVertical: 5
+                                }}
+                            >
+                                <Text style={{
+                                    color: appTheme.textColor,
+                                    ...FONTS.body3,
+                                }}>Pick-Up</Text>
+                            </View>
+                            {/* Delivery  */}
+                            <View
+                                style={{
+                                    borderColor: appTheme.textColor,
+                                    borderWidth: 1,
+                                    borderRadius: 20,
+                                    paddingHorizontal: SIZES.radius,
+                                    paddingVertical: 5,
+                                    marginLeft: 10
+                                }}
+                            >
+                                <Text style={{
+                                    color: appTheme.textColor,
+                                    ...FONTS.body3,
+                                }}>Delivery</Text>
+                            </View>
+                        </View>
                     </TouchableOpacity>
                 )}
 
