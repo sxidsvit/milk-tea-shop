@@ -47,9 +47,8 @@ const Location = ({ navigation, appTheme }) => {
                             color: COLORS.white, ...FONTS.h1, fontSize: 25
                         }}> Locations </Text>
                     </View>
-
                     {/* Empty  */}
-                    {/* <View style={{ width: 25 }} /> */}
+                    <View style={{ width: 25 }} />
                 </View>
 
 
